@@ -18,23 +18,23 @@
     flex-direction: column;
     align-items: stretch;
     transition: box-shadow 0.2s, transform 0.2s;
-    border: 1px solid #657136;
+    border: none;
     position: relative;
     overflow: hidden;
 }
 .personagem-card.estrela-4 .personagem-img {
-    background: #2f2651;
+    background: url('img/4estrelas.jpg') center/cover no-repeat;
 }
 .personagem-card.estrela-5 .personagem-img {
-    background: #c88d25;
+    background: url('img/5estrelas.jpg') center/cover no-repeat;
 }
 .personagem-card.estrela-6 .personagem-img {
-    background: #cc601f;
+    background: url('img/6estrelas.jpg') center/cover no-repeat;
 }
 .personagem-card:hover {
     box-shadow: 0 8px 24px rgba(49,55,57,0.18);
     transform: translateY(-6px) scale(1.03);
-    border-color: #F8F546;
+    border-color: none;
 }
 .personagem-img {
     width: 100%;
@@ -167,6 +167,7 @@ header {
     padding: 2rem;
 }
 .build {
+    transition: background 0.3s;
     border-bottom: 1px solid #eee;
     padding: 1rem 0;
 }
