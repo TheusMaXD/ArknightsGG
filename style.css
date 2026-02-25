@@ -7,6 +7,16 @@
     margin-top: 2rem;
 }
 .personagem-card {
+    }
+    .personagem-card.estrela-4 .personagem-img {
+        background: #A0AAA9;
+    }
+    .personagem-card.estrela-5 .personagem-img {
+        background: #657136;
+    }
+    .personagem-card.estrela-6 .personagem-img {
+        background: #313739;
+    }
     background: #A0AAA9 !important;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(49,55,57,0.10);
