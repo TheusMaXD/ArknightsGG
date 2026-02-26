@@ -1,3 +1,24 @@
+/* Rodapé */
+.site-footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    margin-top: 2rem;
+    font-size: 1rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.10);
+}
+.site-footer .footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.site-footer a {
+    color: #8fd3f4;
+    text-decoration: underline;
+}
+.site-footer a:hover {
+    color: #fff;
+}
 @media (max-width: 900px) {
     .container {
         max-width: 98vw;
@@ -76,15 +97,15 @@
         z-index: 2;
     }
     .personagem-card {
-        width: 100vw;
-        min-width: unset;
-        max-width: 100vw;
-        height: auto;
-        min-height: 120px;
-        font-size: 1rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+        width: 220px;
+        min-width: 180px;
+        max-width: 240px;
+        height: 120px;
+        min-height: 100px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.07);
     }
     .personagem-img {
         height: 110px;
@@ -123,12 +144,12 @@
         padding: 1px 6px;
     }
     .personagem-card {
-        width: 98vw;
-        min-width: unset;
-        max-width: 100vw;
-        height: auto;
-        min-height: 120px;
-        font-size: 0.95rem;
+        width: 220px;
+        min-width: 180px;
+        max-width: 240px;
+        height: 120px;
+        min-height: 100px;
+        font-size: 0.85rem;
     }
     .personagem-img {
         height: 120px;
@@ -161,11 +182,11 @@
 }
 .personagem-card {
     background: #A0AAA9 !important;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(49,55,57,0.10);
-    width: 340px;
-    min-height: 180px;
-    height: 180px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(49,55,57,0.10);
+    width: 220px;
+    min-height: 100px;
+    height: 120px;
     padding: 0;
     display: flex;
     flex-direction: column;

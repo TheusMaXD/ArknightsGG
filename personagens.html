@@ -24,6 +24,15 @@
             </div>
         </div>
     </header>
+    <div style="text-align:center; margin: 2rem 0 1rem 0;">
+        <label for="filtro-estrelas" style="font-weight:bold;">Filtrar por estrelas:</label>
+        <select id="filtro-estrelas" style="padding:0.3rem 1rem; border-radius:6px; font-size:1rem;">
+            <option value="todos">Todos</option>
+            <option value="6">6 Estrelas</option>
+            <option value="5">5 Estrelas</option>
+            <option value="4">4 Estrelas</option>
+        </select>
+    </div>
     <div class="personagem-cards">
         <div class="personagem-card estrela-6">
             <img class="personagem-img" src="img/Yvonne_Banner.webp" alt="Yvonne">
@@ -93,5 +102,27 @@
         </div>
         <!-- Adicione mais personagens conforme necessário -->
     </div>
+    <script>
+    document.getElementById('filtro-estrelas').addEventListener('change', function() {
+        var valor = this.value;
+        var cards = document.querySelectorAll('.personagem-card');
+        cards.forEach(function(card) {
+            card.style.display = '';
+            if (valor === '6' && !card.classList.contains('estrela-6')) {
+                card.style.display = 'none';
+            } else if (valor === '5' && !card.classList.contains('estrela-5')) {
+                card.style.display = 'none';
+            } else if (valor === '4' && !card.classList.contains('estrela-4')) {
+                card.style.display = 'none';
+            }
+        });
+    });
+    </script>
 </body>
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 ArknightsGG. Todos os direitos reservados.</p>
+        <p>Feito por TheusMaXD | <a href="https://github.com/TheusMaXD" target="_blank">GitHub</a></p>
+    </div>
+</footer>
 </html>
