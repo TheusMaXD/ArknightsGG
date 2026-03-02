@@ -1,3 +1,26 @@
+/* Filtro de estrelas - select customizado */
+#filtro-estrelas {
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.08rem;
+    background: linear-gradient(90deg, #8fd3f4 0%, #84fab0 100%);
+    color: #222;
+    border: none;
+    box-shadow: 0 2px 8px rgba(49,55,57,0.10);
+    font-weight: 600;
+    outline: none;
+    transition: box-shadow 0.2s, background 0.3s;
+    cursor: pointer;
+}
+#filtro-estrelas:focus, #filtro-estrelas:hover {
+    box-shadow: 0 4px 16px rgba(49,55,57,0.18);
+    background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+}
+#filtro-estrelas option {
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+}
 /* Rodapé */
 .site-footer {
     background: #222;
@@ -97,11 +120,11 @@
         z-index: 2;
     }
     .personagem-card {
-        width: 220px;
-        min-width: 180px;
-        max-width: 240px;
-        height: 120px;
-        min-height: 100px;
+        width: 250px;
+        min-width: 200px;
+        max-width: 270px;
+        height: 150px;
+        min-height: 120px;
         font-size: 0.85rem;
         border-radius: 8px;
         margin-bottom: 0.5rem;
@@ -152,7 +175,7 @@
         font-size: 0.85rem;
     }
     .personagem-img {
-        height: 120px;
+        height: 150px;
         border-radius: 10px 10px 0 0;
     }
     .personagem-nome {
@@ -184,9 +207,9 @@
     background: #A0AAA9 !important;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(49,55,57,0.10);
-    width: 220px;
-    min-height: 100px;
-    height: 120px;
+    width: 270px;
+    min-height: 130px;
+    height: 160px;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -212,7 +235,7 @@
 }
 .personagem-img {
     width: 100%;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
     border-radius: 12px 12px 0 0;
     margin: 0;
@@ -319,6 +342,8 @@ header {
     width: auto;
     display: block;
 }
+
+.header-nav button {
     font-size: 1rem;
     color: #fff;
     cursor: pointer;
