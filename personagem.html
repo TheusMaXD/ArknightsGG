@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personagem - ArknightsGG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-bar">
+            <span class="header-title">
+                <img src="img/ArknightsGG_Logo.png" alt="ArknightsGG Logo" style="height: 60px; width: auto; vertical-align: middle;" />
+            </span>
+            <nav class="header-nav">
+                <button onclick="location.href='index.html'">Home</button>
+                <button onclick="location.href='personagens.html'">Personagens</button>
+                <button onclick="location.href='builds.html'">Builds</button>
+                <button onclick="location.href='guias.html'">Guias</button>
+                <button onclick="location.href='contato.html'">Contato</button>
+            </nav>
+            <div class="header-logo">
+                <img src="img/ArknightsEndfieldLogo.webp" alt="Logo ArknightsGG" />
+            </div>
+        </div>
+    </header>
+    <div class="container" id="personagem-container" style="max-width:1000px;margin:2rem auto 2rem auto;"></div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            &copy; 2026 ArknightsGG. Todos os direitos reservados.
+        </div>
+    </footer>
+    <script>
+    // Exemplo de dados, pode ser expandido
+    const personagens = {
+                "Endministrator (Female)": {
+                    nome: "Endministrator (Female)",
+                    estrelas: 6,
+                    imagem: "img/Endministrator_(Female)_Banner.webp",
+                    descricao: "Endministrator é especialista em comando e buffs de equipe.",
+                    classe: "Leader",
+                    arma: "Console",
+                    elemento: "Arcane",
+                    faccao: "Endfield Industries",
+                    tags: ["Buff", "Comando"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Buff de equipe", "Controle de campo"]
+                },
+                "Ember": {
+                    nome: "Ember",
+                    estrelas: 6,
+                    imagem: "img/Ember_Banner.webp",
+                    descricao: "Ember é especialista em dano elemental e controle de área.",
+                    classe: "Caster",
+                    arma: "Cajado",
+                    elemento: "Pyro",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano em área", "Controle"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Explosão de fogo", "Controle de multidão"]
+                },
+                "Last Rite": {
+                    nome: "Last Rite",
+                    estrelas: 6,
+                    imagem: "img/Last_Rite_Banner.webp",
+                    descricao: "Last Rite é especialista em dano sombrio e debuffs.",
+                    classe: "Caster",
+                    arma: "Livro",
+                    elemento: "Dark",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano sombrio", "Debuff"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Debuff de ataque", "Dano sombrio"]
+                },
+                "Xaihi": {
+                    nome: "Xaihi",
+                    estrelas: 5,
+                    imagem: "img/Xaihi_Banner.webp",
+                    descricao: "Xaihi é especialista em ataques rápidos e evasão.",
+                    classe: "Vanguard",
+                    arma: "Lança",
+                    elemento: "Wind",
+                    faccao: "Endfield Industries",
+                    tags: ["Ataque rápido", "Evasão"],
+                    atributoPrincipal: "Agilidade",
+                    atributoSecundario: "Força",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Ataque duplo", "Aumento de evasão"]
+                },
+                "Avywenna": {
+                    nome: "Avywenna",
+                    estrelas: 5,
+                    imagem: "img/Avywenna_Banner.webp",
+                    descricao: "Avywenna é especialista em suporte e buffs de defesa.",
+                    classe: "Supporter",
+                    arma: "Livro",
+                    elemento: "Arcane",
+                    faccao: "Endfield Industries",
+                    tags: ["Buff de defesa", "Suporte"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Buff de defesa", "Cura leve"]
+                },
+                "Da Pan": {
+                    nome: "Da Pan",
+                    estrelas: 5,
+                    imagem: "img/Da_Pan_Banner.webp",
+                    descricao: "Da Pan é especialista em resistência e contra-ataque.",
+                    classe: "Guard",
+                    arma: "Escudo",
+                    elemento: "Physical",
+                    faccao: "Endfield Industries",
+                    tags: ["Resistência", "Contra-ataque"],
+                    atributoPrincipal: "Defesa",
+                    atributoSecundario: "Força",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Bloqueio", "Contra-ataque"]
+                },
+                "Lifeng": {
+                    nome: "Lifeng",
+                    estrelas: 6,
+                    imagem: "img/Lifeng_Banner.webp",
+                    descricao: "Lifeng é especialista em dano físico e velocidade.",
+                    classe: "Guard",
+                    arma: "Espada",
+                    elemento: "Physical",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano físico", "Velocidade"],
+                    atributoPrincipal: "Força",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Ataque rápido", "Aumento de velocidade"]
+                },
+                "Arclight": {
+                    nome: "Arclight",
+                    estrelas: 5,
+                    imagem: "img/Arclight_Banner.webp",
+                    descricao: "Arclight é especialista em dano elétrico e controle de multidão.",
+                    classe: "Caster",
+                    arma: "Cajado",
+                    elemento: "Electro",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano elétrico", "Controle"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Explosão elétrica", "Controle de multidão"]
+                },
+                "Alesh": {
+                    nome: "Alesh",
+                    estrelas: 5,
+                    imagem: "img/Alesh_Banner.webp",
+                    descricao: "Alesh é especialista em dano físico e resistência.",
+                    classe: "Guard",
+                    arma: "Espada",
+                    elemento: "Physical",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano físico", "Resistência"],
+                    atributoPrincipal: "Força",
+                    atributoSecundario: "Defesa",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Ataque rápido", "Defesa elevada"]
+                },
+                "Wulfgard": {
+                    nome: "Wulfgard",
+                    estrelas: 5,
+                    imagem: "img/Wulfgard_Banner.webp",
+                    descricao: "Wulfgard é especialista em dano físico e crítico.",
+                    classe: "Guard",
+                    arma: "Espada",
+                    elemento: "Physical",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano físico", "Crítico"],
+                    atributoPrincipal: "Força",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Ataque crítico", "Aumento de dano"]
+                },
+                "Snowshine": {
+                    nome: "Snowshine",
+                    estrelas: 5,
+                    imagem: "img/Snowshine_Banner.webp",
+                    descricao: "Snowshine é especialista em dano Cryo e controle de área.",
+                    classe: "Caster",
+                    arma: "Cajado",
+                    elemento: "Cryo",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano Cryo", "Controle"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Explosão de gelo", "Controle de multidão"]
+                },
+                "Pogranichnik": {
+                    nome: "Pogranichnik",
+                    estrelas: 6,
+                    imagem: "img/Pogranichnik_Banner.webp",
+                    descricao: "Pogranichnik é especialista em dano físico e buffs de defesa.",
+                    classe: "Guard",
+                    arma: "Espada",
+                    elemento: "Physical",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano físico", "Buff de defesa"],
+                    atributoPrincipal: "Força",
+                    atributoSecundario: "Defesa",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Buff de defesa", "Ataque rápido"]
+                },
+                "Fluorite": {
+                    nome: "Fluorite",
+                    estrelas: 4,
+                    imagem: "img/Fluorite_Banner.webp",
+                    descricao: "Fluorite é especialista em suporte e buffs de ataque.",
+                    classe: "Supporter",
+                    arma: "Livro",
+                    elemento: "Arcane",
+                    faccao: "Endfield Industries",
+                    tags: ["Buff de ataque", "Suporte"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Buff de ataque", "Cura leve"]
+                },
+                "Catcher": {
+                    nome: "Catcher",
+                    estrelas: 4,
+                    imagem: "img/Catcher_Banner.webp",
+                    descricao: "Catcher é especialista em controle de campo e debuffs.",
+                    classe: "Supporter",
+                    arma: "Rede",
+                    elemento: "Physical",
+                    faccao: "Endfield Industries",
+                    tags: ["Controle de campo", "Debuff"],
+                    atributoPrincipal: "Agilidade",
+                    atributoSecundario: "Intelecto",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Debuff de ataque", "Controle de campo"]
+                },
+                "Akekuri": {
+                    nome: "Akekuri",
+                    estrelas: 4,
+                    imagem: "img/Akekuri_Banner.webp",
+                    descricao: "Akekuri é especialista em dano físico e velocidade.",
+                    classe: "Guard",
+                    arma: "Espada",
+                    elemento: "Physical",
+                    faccao: "Endfield Industries",
+                    tags: ["Dano físico", "Velocidade"],
+                    atributoPrincipal: "Força",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Ataque rápido", "Aumento de velocidade"]
+                },
+                "Antal": {
+                    nome: "Antal",
+                    estrelas: 4,
+                    imagem: "img/Antal_Banner.webp",
+                    descricao: "Antal é especialista em buffs de defesa e suporte.",
+                    classe: "Supporter",
+                    arma: "Livro",
+                    elemento: "Arcane",
+                    faccao: "Endfield Industries",
+                    tags: ["Buff de defesa", "Suporte"],
+                    atributoPrincipal: "Intelecto",
+                    atributoSecundario: "Agilidade",
+                    obtencao: "Headhunting Contratada",
+                    habilidades: ["Buff de defesa", "Cura leve"]
+                },
+        "Yvonne": {
+            nome: "Yvonne",
+            estrelas: 6,
+            imagem: "img/Yvonne_Banner.webp",
+            descricao: "Yvonne é uma Striker de 6 estrelas, especialista em dano e solidificação, com ataques Cryo e grande potencial de crítico.",
+            classe: "Striker",
+            arma: "Pistola",
+            elemento: "Cryo",
+            faccao: "Endfield Industries",
+            tags: ["Dano", "Solidificar", "Crítico"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Cura em área", "Buff de defesa", "Remoção de debuffs"],
+            video: "https://www.youtube.com/embed/HYmAUbxA0lk?si=kos7gTVsDgi1HFkB"
+        },
+        "Gilberta": {
+            nome: "Gilberta",
+            estrelas: 6,
+            imagem: "img/Gilberta_Banner.webp",
+            descricao: "Gilberta é uma personagem de alto dano, especialista em ataques de área.",
+            classe: "Caster",
+            arma: "Cajado",
+            elemento: "Pyro",
+            faccao: "Endfield Industries",
+            tags: ["Dano em área", "Controle"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Explosão de fogo", "Controle de multidão"]
+        },
+        "Laevatain": {
+            nome: "Laevatain",
+            estrelas: 6,
+            imagem: "img/Laevatain_Banner.webp",
+            descricao: "Laevatain é especialista em dano físico e resistência.",
+            classe: "Guard",
+            arma: "Espada",
+            elemento: "Physical",
+            faccao: "Endfield Industries",
+            tags: ["Dano físico", "Resistência"],
+            atributoPrincipal: "Força",
+            atributoSecundario: "Defesa",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Ataque rápido", "Defesa elevada"]
+        },
+        "Perlica": {
+            nome: "Perlica",
+            estrelas: 5,
+            imagem: "img/Perlica_Banner.webp",
+            descricao: "Perlica é suporte curativo, focada em regeneração e remoção de debuffs.",
+            classe: "Medic",
+            arma: "Bastão",
+            elemento: "Bio",
+            faccao: "Endfield Industries",
+            tags: ["Cura", "Suporte"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Cura em área", "Remoção de debuffs"]
+        },
+        "Ardelia": {
+            nome: "Ardelia",
+            estrelas: 6,
+            imagem: "img/Ardelia_Banner.webp",
+            descricao: "Ardelia é especialista em buffs e controle de campo.",
+            classe: "Supporter",
+            arma: "Livro",
+            elemento: "Arcane",
+            faccao: "Endfield Industries",
+            tags: ["Buff", "Controle"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Buff de ataque", "Controle de campo"]
+        },
+        "Chen Qianyu": {
+            nome: "Chen Qianyu",
+            estrelas: 5,
+            imagem: "img/Chen_Qianyu_Banner.webp",
+            descricao: "Chen Qianyu é especialista em ataques rápidos e críticos.",
+            classe: "Vanguard",
+            arma: "Lança",
+            elemento: "Wind",
+            faccao: "Endfield Industries",
+            tags: ["Ataque rápido", "Crítico"],
+            atributoPrincipal: "Agilidade",
+            atributoSecundario: "Força",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Ataque duplo", "Aumento de crítico"]
+        },
+
+        "Gilberta": {
+            nome: "Gilberta",
+            estrelas: 6,
+            imagem: "img/Gilberta_Banner.webp",
+            descricao: "Yvonne é uma Striker de 6 estrelas, especialista em dano e solidificação, com ataques Cryo e grande potencial de crítico.",
+            classe: "Striker",
+            arma: "Pistola",
+            elemento: "Cryo",
+            faccao: "Endfield Industries",
+            tags: ["Dano", "Solidificar", "Crítico"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Cura em área", "Buff de defesa", "Remoção de debuffs"]
+        },
+
+        "Laevatain": {
+            nome: "Laevatain",
+            estrelas: 6,
+            imagem: "img/Laevatain_Banner.webp",
+            descricao: "Yvonne é uma Striker de 6 estrelas, especialista em dano e solidificação, com ataques Cryo e grande potencial de crítico.",
+            classe: "Striker",
+            arma: "Pistola",
+            elemento: "Cryo",
+            faccao: "Endfield Industries",
+            tags: ["Dano", "Solidificar", "Crítico"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Cura em área", "Buff de defesa", "Remoção de debuffs"]
+        },
+
+        "Perlica": {
+            nome: "Perlica",
+            estrelas: 6,
+            imagem: "img/Perlica_Banner.webp",
+            descricao: "Yvonne é uma Striker de 6 estrelas, especialista em dano e solidificação, com ataques Cryo e grande potencial de crítico.",
+            classe: "Striker",
+            arma: "Pistola",
+            elemento: "Cryo",
+            faccao: "Endfield Industries",
+            tags: ["Dano", "Solidificar", "Crítico"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Cura em área", "Buff de defesa", "Remoção de debuffs"]
+        },
+
+        "Ardelia": {
+            nome: "Ardelia",
+            estrelas: 6,
+            imagem: "img/Ardelia_Banner.webp",
+            descricao: "Yvonne é uma Striker de 6 estrelas, especialista em dano e solidificação, com ataques Cryo e grande potencial de crítico.",
+            classe: "Striker",
+            arma: "Pistola",
+            elemento: "Cryo",
+            faccao: "Endfield Industries",
+            tags: ["Dano", "Solidificar", "Crítico"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Cura em área", "Buff de defesa", "Remoção de debuffs"]
+        },
+
+        "Chen Qianyu": {
+            nome: "Chen Qianyu",
+            estrelas: 6,
+            imagem: "img/Chen_Qianyu_Banner.webp",
+            descricao: "Yvonne é uma Striker de 6 estrelas, especialista em dano e solidificação, com ataques Cryo e grande potencial de crítico.",
+            classe: "Striker",
+            arma: "Pistola",
+            elemento: "Cryo",
+            faccao: "Endfield Industries",
+            tags: ["Dano", "Solidificar", "Crítico"],
+            atributoPrincipal: "Intelecto",
+            atributoSecundario: "Agilidade",
+            obtencao: "Headhunting Contratada",
+            habilidades: ["Cura em área", "Buff de defesa", "Remoção de debuffs"]
+        },
+        // Adicione outros personagens aqui
+    };
+    // Pega o nome do personagem da URL
+    const params = new URLSearchParams(window.location.search);
+    const nome = params.get('nome');
+    const p = personagens[nome];
+    const container = document.getElementById('personagem-container');
+    if (p) {
+        container.innerHTML = `
+            <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+                <div style="width:100%;max-width:950px;">
+                            <div style="width:100%;max-width:950px;position:relative;">
+                                <img src='${p.estrelas === 6 ? "img/6estrelas.jpg" : p.estrelas === 5 ? "img/5estrelas.jpg" : "img/4estrelas.jpg"}' alt='Fundo Card' style='position:absolute;top:0;left:0;width:100%;height:350px;object-fit:cover;border-radius:22px;z-index:1;filter:brightness(0.85) blur(1px);'>
+                                <img src="${p.imagem}" alt="${p.nome}" style="width:100%;height:350px;object-fit:cover;border-radius:22px;box-shadow:0 4px 24px rgba(49,55,57,0.15);display:block;position:relative;z-index:2;">
+                            </div>
+                </div>
+                <h2 style="margin:0;font-size:2.1rem;letter-spacing:1px;display:flex;align-items:center;gap:0.5rem;">
+                    ${p.nome}
+                    <span style="display:inline-flex;align-items:center;gap:2px;">
+                        ${Array(p.estrelas).fill(0).map(() => `<img src='img/Estrela.svg' alt='Estrela' style='width:22px;height:22px;vertical-align:middle;'>`).join('')}
+                    </span>
+                </h2>
+                <div style='background:linear-gradient(90deg,#232a3a 0%,#3a4a6a 100%);color:#f3f6fa;padding:2rem 2.2rem 2rem 2.2rem;border-radius:28px;box-shadow:0 6px 32px rgba(49,55,57,0.18);max-width:900px;width:100%;margin-bottom:1.5rem;'>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.5rem;align-items:center;">
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><img src="img/Striker.webp" alt="Striker" style="width:24px;vertical-align:middle;"> <b style="color:#8fd3f4;">Classe:</b> <span style='color:#ffe066;font-weight:600;'>${p.classe}</span></div>
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><img src="img/Handcannon.webp" alt="Pistola" style="width:24px;vertical-align:middle;"> <b style="color:#8fd3f4;">Arma:</b> <span style='color:#fff;font-weight:600;'>${p.arma}</span></div>
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><img src="img/Cryo.webp" alt="Cryo" style="width:24px;vertical-align:middle;"> <b style="color:#8fd3f4;">Elemento:</b> <span style='color:#8fd3f4;font-weight:600;'>${p.elemento}</span></div>
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><img src="img/Endfield.webp" alt="Endfield Industries" style="width:24px;vertical-align:middle;"> <b style="color:#8fd3f4;">Facção:</b> <span style='color:#ffe066;font-weight:600;'>${p.faccao}</span></div>
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><b style="color:#8fd3f4;">Tags:</b> ${p.tags.map(tag => `<span style='background:linear-gradient(90deg,#8fd3f4 0%,#84fab0 100%);color:#222;padding:3px 14px;border-radius:10px;margin-right:0.3rem;font-size:1rem;display:inline-block;font-weight:600;box-shadow:0 2px 8px rgba(49,55,57,0.10);'>${tag}</span>`).join('')}</div>
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><img src="img/Intellect.webp" alt="Intelecto" style="width:24px;vertical-align:middle;"> <b style="color:#8fd3f4;">Atributo Principal:</b> <span style='color:#fff;font-weight:600;'>${p.atributoPrincipal}</span></div>
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><img src="img/Agility.webp" alt="Agilidade" style="width:24px;vertical-align:middle;"> <b style="color:#8fd3f4;">Atributo Secundário:</b> <span style='color:#fff;font-weight:600;'>${p.atributoSecundario}</span></div>
+                        <div style='display:flex;align-items:center;gap:0.7rem;'><b style="color:#8fd3f4;">Como obter:</b> <span style='color:#ffe066;font-weight:600;'>${p.obtencao}</span></div>
+                    </div>
+                </div>
+                ${p.video ? `<div style='margin:2.2rem auto 0 auto;display:flex;justify-content:center;'><iframe width="950" height="450" src="${p.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style='border-radius:18px;box-shadow:0 2px 16px rgba(49,55,57,0.13);max-width:100vw;'></iframe></div>` : ''}
+                <div style="color:#444;font-size:1.13rem;text-align:center;max-width:480px;margin:2.2rem auto 0 auto;">${p.descricao}</div>
+                <div style="margin-top:2.2rem;display:flex;justify-content:center;">
+                    <div style='background:linear-gradient(90deg,#232a3a 0%,#3a4a6a 100%);color:#f3f6fa;padding:1.7rem 2.1rem 1.7rem 2.1rem;border-radius:22px;box-shadow:0 2px 16px rgba(49,55,57,0.13);max-width:950px;width:100%;'>
+                        <div style="font-size:1.18rem;font-weight:700;margin-bottom:1.1rem;letter-spacing:0.5px;color:#8fd3f4;text-align:center;">Perfil</div>
+                        <div style="font-size:1.08rem;line-height:1.7;color:#fff;">
+                            <p style="font-style:italic;color:#8fd3f4;margin-bottom:1.1rem;">"Esse par de handcannons está perfeito. Hmm... Notei alguns pontos de melhoria no design. Acho que vou customizá-los e criar um modelo exclusivo da Yvonne!"</p>
+                            <p>Yvonne é uma operadora da Divisão de Tecnologia Especialista da Endfield Industries, atualmente responsável por pesquisas sobre Æther, Blight e dispositivos relacionados.<br><br>
+                            À primeira vista, Yvonne parece uma fashionista rebelde — pinta os chifres, o rabo e as unhas com cores vibrantes. Ela falta em conferências acadêmicas só para garantir as últimas revistas de moda e álbuns pop. Apaixonada por tudo que é novo e fora do comum, Yvonne sempre está à frente das tendências, seguindo seu próprio ritmo.<br><br>
+                            Mas ninguém pode negar que ela é um verdadeiro gênio. Ainda nos tempos de escola, já acumulava prêmios em pesquisas científicas que muitos só podiam sonhar. Todos esperavam que ela fosse para um grande instituto de pesquisa e liderasse sua área. Em vez disso, Yvonne deixou tudo para trás e escolheu a Endfield.<br><br>
+                            O motivo? Ela nunca explicou. Talvez você possa perguntar para ela mesmo.</p>
+                            <p style="font-style:italic;color:#8fd3f4;margin-top:1.1rem;">"Posso aplicar uma nova camada de pintura no meu equipamento? Esse esquema de cores não combina com meu cabelo."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    } else {
+        container.innerHTML = `<div style='text-align:center;color:#c00;font-size:1.2rem;'>Personagem não encontrado.</div>`;
+    }
+    </script>
+</body>
+</html>
