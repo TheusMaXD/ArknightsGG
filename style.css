@@ -314,6 +314,7 @@ header {
     gap: 2vw;
     flex: 1;
     justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 }
 .header-nav button {
     background: none;
@@ -325,6 +326,7 @@ header {
     cursor: pointer;
     border-radius: 4px;
     transition: background 0.2s, color 0.2s;
+    font-family: 'Montserrat', 'Poppins', 'Roboto', Arial, Helvetica, sans-serif;
 }
 .header-nav button:hover {
     background: #222;
@@ -350,6 +352,7 @@ header {
     font-weight: 500;
     letter-spacing: 0.5px;
     transition: color 0.2s;
+    font-family: 'Montserrat', 'Poppins', 'Roboto', Arial, Helvetica, sans-serif;
 }
 .header-nav button:hover {
     color: #00ffe7;
