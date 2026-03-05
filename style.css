@@ -259,10 +259,53 @@
 }
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f7f7f7;
-    color: #222;
+    background: #181c24;
+    color: #f3f6fa;
     margin: 0;
     padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #232a3a;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 2rem;
+    color: #f3f6fa;
+}
+
+.build {
+    transition: background 0.3s;
+    border-bottom: 1px solid #232a3a;
+    padding: 1rem 0;
+    background: #232a3a;
+}
+
+.build-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: #8fd3f4;
+}
+
+.build-desc {
+    font-size: 1rem;
+    color: #bfc9d1;
+}
+
+.personagem-card {
+    background: #232a3a !important;
+    color: #f3f6fa;
+}
+
+.personagem-nome {
+    color: #8fd3f4;
+}
+
+.personagem-desc {
+    color: #bfc9d1;
+}
 }
 header {
     background: #111;
